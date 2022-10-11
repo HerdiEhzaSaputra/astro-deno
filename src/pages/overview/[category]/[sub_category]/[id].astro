@@ -1,0 +1,9 @@
+---
+const { category, sub_category, id } = Astro.params;
+
+import Layout from '../../../../layouts/Layout.astro';
+import ProdukOverview from '../../../../components/ProdukOverview'
+---
+<Layout title="Welcome to Astro (on Deno).">
+    <ProdukOverview client:idle/>
+</Layout>

@@ -19,7 +19,11 @@
     "@astrojs/deno": "^1.1.0",
     "@headlessui/react": "^1.7.3",
     "@heroicons/react": "^2.0.12",
+    "@julr/unocss-preset-forms": "^0.0.2",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
     "@unocss/reset": "^0.45.29",
+    "react-transition-group": "^4.4.5",
     "unocss": "^0.45.29"
   }
 }

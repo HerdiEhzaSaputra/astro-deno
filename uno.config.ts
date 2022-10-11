@@ -2,8 +2,11 @@ import {
     defineConfig,
     presetIcons,
     presetUno,
+    presetWind,
     transformerDirectives,
 } from 'unocss'
+
+import { presetForms } from '@julr/unocss-preset-forms'
 
 export default defineConfig({
     shortcuts: [
@@ -14,6 +17,8 @@ export default defineConfig({
     ],
     presets: [
         presetUno(),
+        presetForms(),
+        presetWind(),
         presetIcons({
             extraProperties: {
             'display': 'inline-block',
