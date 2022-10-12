@@ -3,6 +3,7 @@ import { Dialog, Popover, Tab, Transition } from '@headlessui/react'
 import { Bars3Icon, MagnifyingGlassIcon, ShoppingBagIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 import Cart from './Cart';
+import SearchModal from './Header/SearchModal';
 import navigationData from '../../data/navbar.json';
 
 const navigation = navigationData
@@ -14,7 +15,8 @@ function classNames(...classes) {
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
-    const [cartModalOpen, setCartModalOpen] = useState(false)
+    const [cartModalOpen, setCartModalOpen] = useState(false);
+    const [searchModalOpen, setSearchModalOpen] = useState(false);
 
     return (
         <>
@@ -211,11 +213,11 @@ const Navbar = () => {
                                                         <Transition
                                                             as={Fragment}
                                                             enter="transition ease-out duration-200"
-                                                            enterFrom="opacity-0"
-                                                            enterTo="opacity-100"
+                                                            enterFrom="opacity-0 -translate-y-1"
+                                                            enterTo="opacity-100 translate-y-0"
                                                             leave="transition ease-in duration-150"
-                                                            leaveFrom="opacity-100"
-                                                            leaveTo="opacity-0"
+                                                            leaveFrom="opacity-100 translate-y-0"
+                                                            leaveTo="opacity-0 -translate-y-1"
                                                         >
                                                             <Popover.Panel className="absolute inset-x-0 top-full text-sm text-gray-500">
                                                                 {/* Presentational element used to render the bottom shadow, if we put the shadow on the actual panel it pokes out the top, so we use this shorter element to hide the top of the shadow */}
@@ -313,22 +315,26 @@ const Navbar = () => {
 
                                     {/* Search */}
                                     <div className="flex lg:ml-6">
-                                        <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
-                                            <span className="sr-only">Search</span>
-                                            <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" />
-                                        </a>
+                                        <button onClick={(e) => { e.stopPropagation(); setSearchModalOpen(true); }}>
+                                            <a href="#" className="p-2 text-gray-400 hover:text-gray-500">
+                                                <span className="sr-only">Search</span>
+                                                <MagnifyingGlassIcon className="h-6 w-6" aria-hidden="true" />
+                                            </a>
+                                        </button>
                                     </div>
 
                                     {/* Cart */}
                                     <div className="ml-4 flow-root lg:ml-6">
-                                        <a onClick={(e) => { e.stopPropagation(); setCartModalOpen(true); }} href="#" className="group -m-2 flex items-center p-2">
-                                            <ShoppingBagIcon
-                                                className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
-                                                aria-hidden="true"
-                                            />
-                                            <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
-                                            <span className="sr-only">items in cart, view bag</span>
-                                        </a>
+                                        <button onClick={(e) => { e.preventDefault(); setCartModalOpen(true); }}>
+                                            <a href="#" className="group -m-2 flex items-center p-2">
+                                                <ShoppingBagIcon
+                                                    className="h-6 w-6 flex-shrink-0 text-gray-400 group-hover:text-gray-500"
+                                                    aria-hidden="true"
+                                                />
+                                                <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">0</span>
+                                                <span className="sr-only">items in cart, view bag</span>
+                                            </a>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -338,6 +344,7 @@ const Navbar = () => {
             </div>
 
             <Cart cartOpen={cartModalOpen} setCartOpen={setCartModalOpen}/>
+            <SearchModal modalOpen={searchModalOpen} setModalOpen={setSearchModalOpen} id={undefined} searchId={undefined}/>
         </>
     )
 }

@@ -3,14 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import Promo from '../components/Promo'
 import CategoryPreview from '../components/CategoryPreview'
 import Produk from '../components/Produk'
-import ProductQuickOvw from '../components/ProductQuickOvw'
+import Modal from '../components/Modal'
+// import ProductQuickOvw from '../components/ProductQuickOvw'
 ---
 
-<Layout title="Welcome to Astro (on Deno).">
+<Layout title="Xezar Commerce">
 	<main>
 		<Promo client:idle/>
 		<CategoryPreview client:idle/>
 		<Produk client:idle/>
-		<ProductQuickOvw client:idle/>
+		<!-- <ProductQuickOvw client:idle/> -->
+		<!-- <Modal client:idle/> -->
 	</main>
 </Layout>
