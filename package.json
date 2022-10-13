@@ -23,7 +23,6 @@
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "@unocss/reset": "^0.45.29",
-    "react-router-dom": "^6.4.2",
     "react-transition-group": "^4.4.5",
     "unocss": "^0.45.29"
   }

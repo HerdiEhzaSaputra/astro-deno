@@ -6,9 +6,14 @@ export interface Props {
 const { title } = Astro.props as Props;
 
 import '@unocss/reset/tailwind.css';
+import React, { useState } from 'react';
 
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import Sidebar from "../components/admin/Sidebar";
+import Header from "../components/admin/Header";
+import SidebarComp from "../components/admin/SidebarComp";
+import HeaderComp from "../components/admin/HeaderComp";
+
+// const [sidebarOpen, setSidebarOpen] = useState(false);
 ---
 
 <!DOCTYPE html>
@@ -20,13 +25,22 @@ import Footer from '../components/Footer';
 		<title>{title}</title>
 	</head>
 	<body>
-		<Navbar client:idle />
 
-		<div class="p-2 z-10 py-[6.6rem]">
-			<slot />
+		<div class="flex h-screen overflow-hidden">
+
+			<SidebarComp client:idle/>
+			<!-- <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} client:load/> -->
+	
+			<div class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+	
+				<HeaderComp client:idle/>
+				<!-- <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} client:load/> -->
+	
+				<main>
+					<slot />
+				</main>
+			</div>
 		</div>
-
-		<Footer />
 
 	</body>
 </html>
