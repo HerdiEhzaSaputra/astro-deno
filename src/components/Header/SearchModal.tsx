@@ -15,9 +15,9 @@ function SearchModal({
     useEffect(() => {
         const clickHandler = ({ target }) => {
             if (!modalOpen || modalContent.current.contains(target)) return
-            setModalOpen(false);
-        };
-        document.addEventListener('click', clickHandler);
+                setModalOpen(false);
+            };
+            document.addEventListener('click', clickHandler);
         return () => document.removeEventListener('click', clickHandler);
     });
 
@@ -25,9 +25,9 @@ function SearchModal({
     useEffect(() => {
         const keyHandler = ({ keyCode }) => {
             if (!modalOpen || keyCode !== 27) return;
-            setModalOpen(false);
-        };
-        document.addEventListener('keydown', keyHandler);
+                setModalOpen(false);
+            };
+            document.addEventListener('keydown', keyHandler);
         return () => document.removeEventListener('keydown', keyHandler);
     });
 
@@ -48,6 +48,7 @@ function SearchModal({
                 leaveStart="opacity-100"
                 leaveEnd="opacity-0"
                 aria-hidden="true"
+                appear
             />
             {/* Modal dialog */}
             <Transition
@@ -62,6 +63,7 @@ function SearchModal({
                 leave="transition ease-in-out duration-200"
                 leaveStart="opacity-100 translate-y-0"
                 leaveEnd="opacity-0 translate-y-4"
+                appear
             >
                 <div ref={modalContent} className="bg-white overflow-auto max-w-2xl w-full max-h-full rounded shadow-lg">
                     {/* Search form */}

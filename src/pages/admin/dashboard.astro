@@ -1,0 +1,39 @@
+---
+import AdminLayout from "../../layouts/AdminLayout.astro";
+import Sidebar from "../../components/admin/Sidebar";
+import Header from "../../components/admin/Header";
+
+import React, { useState } from 'react';
+
+const SidebarComponent = () => {
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+
+    return (
+        <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+    )
+};
+
+const HeaderComponent = () => {
+    const [sidebarOpen, setSidebarOpen] = useState(false);
+
+    return (
+        <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+    )
+};
+---
+
+<AdminLayout title="Check Out | Xezar Commerce">
+    <div class="flex h-screen overflow-hidden">
+
+        <SidebarComponent  client:idle/>
+
+        <div class="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+
+            <HeaderComponent  client:idle/>
+
+            <main>
+
+            </main>
+        </div>
+    </div>
+</AdminLayout>

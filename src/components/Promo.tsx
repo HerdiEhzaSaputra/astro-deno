@@ -81,7 +81,7 @@ export default function Promo() {
                             </div>
 
                             <a
-                                href="#"
+                                href="#0"
                                 className="inline-block rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-center font-medium text-white hover:bg-indigo-700"
                             >
                                 Shop Collection

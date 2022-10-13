@@ -57,7 +57,7 @@ const product = {
     details:
         'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
 }
-const reviews = { href: '#', average: 4, totalCount: 117 }
+const reviews = { href: '#0', average: 4, totalCount: 117 }
 
 const params = {
     id: 1,
@@ -227,7 +227,7 @@ export default function ProdukOverview() {
                             <div className="mt-10">
                                 <div className="flex items-center justify-between">
                                     <h3 className="text-sm font-medium text-gray-900">Size</h3>
-                                    <a href="#" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
+                                    <a href="#0" className="text-sm font-medium text-indigo-600 hover:text-indigo-500">
                                         Size guide
                                     </a>
                                 </div>
